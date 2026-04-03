@@ -20,10 +20,10 @@ interface GeminiApiService {
 
 /** Replace with your real key from https://aistudio.google.com/apikey */
 object GeminiConfig {
-    const val API_KEY = "AIzaSyDiZp2DrF0hynXRJQtdy3EvktFph-7vjUU"
+    val API_KEY: String = com.vjpro.tindow.BuildConfig.GEMINI_API_KEY
     const val BASE_URL = "https://generativelanguage.googleapis.com/"
 
-    fun isConfigured(): Boolean = API_KEY != "YOUR_GEMINI_API_KEY_HERE"
+    fun isConfigured(): Boolean = API_KEY.isNotBlank()
 }
 
 // Request models

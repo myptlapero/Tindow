@@ -17,12 +17,12 @@ interface PexelsApiService {
     ): PexelsSearchResponse
 }
 
-/** Replace with your real key from https://www.pexels.com/api/new/ */
+/** API key loaded from BuildConfig (set in local.properties) */
 object PexelsConfig {
-    const val API_KEY = "NW2iNrjRH7QXRkhLfesPLVTPQNHWTs8WGlBfP72XGguaWMwuW0ZsX6lC"
+    val API_KEY: String = com.vjpro.tindow.BuildConfig.PEXELS_API_KEY
     const val BASE_URL = "https://api.pexels.com/"
 
-    fun isConfigured(): Boolean = API_KEY != "YOUR_PEXELS_API_KEY_HERE"
+    fun isConfigured(): Boolean = API_KEY.isNotBlank()
 }
 
 @JsonClass(generateAdapter = false)

@@ -21,10 +21,10 @@ interface GeoapifyApiService {
 
 /** Replace with your real key from https://myprojects.geoapify.com/ */
 object GeoapifyConfig {
-    const val API_KEY = "8f8213a6ed9e4af480a5c4e9623737ca"
+    val API_KEY: String = com.vjpro.tindow.BuildConfig.GEOAPIFY_API_KEY
     const val BASE_URL = "https://api.geoapify.com/"
 
-    fun isConfigured(): Boolean = API_KEY != "YOUR_GEOAPIFY_API_KEY_HERE"
+    fun isConfigured(): Boolean = API_KEY.isNotBlank()
 
     /** Build circle filter for nearby search */
     fun circleFilter(lat: Double, lon: Double, radiusMeters: Int = 5000): String {

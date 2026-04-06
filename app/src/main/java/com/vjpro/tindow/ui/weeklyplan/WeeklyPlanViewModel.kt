@@ -62,6 +62,7 @@ class WeeklyPlanViewModel @Inject constructor(
     private fun loadExistingPlan() {
         viewModelScope.launch {
             val plan = weeklyPlanRepository.getLatestPlan()
+            Log.d("MyPTL", "WeeklyPlanViewModel.loadExistingPlan() plan=${plan != null}, days=${plan?.days?.size ?: 0}")
             _uiState.value = if (plan != null && plan.days.isNotEmpty()) {
                 WeeklyPlanUiState.Success(plan)
             } else {
